@@ -1,80 +1,70 @@
-# Node.js + TypeScript Starter
+# Asteroids Backend
 
-![](../../actions/workflows/ci.yml/badge.svg)
+This project serves as the backend for the Asteroids List web application. It is built with Node.js and TypeScript, providing the necessary APIs to fetch and manage asteroid data from NASA's API. The backend utilizes MongoDB for storing favorite asteroids and is set up for continuous integration and deployment (CI/CD) with Railway.
 
-[![](https://railway.app/button.svg)](https://railway.app/template/8AWlL5?referralCode=bonus)
+## Features
 
-## Key Features
+- Exposes RESTful APIs for fetching a list of asteroids and managing favorite asteroids.
+- Integrates with NASA's API to fetch asteroid data.
+- Stores favorite asteroids in a MongoDB database.
+- Provides endpoints for marking asteroids as favorites, removing favorites, and retrieving favorite asteroids.
 
-- [<img src="https://user-images.githubusercontent.com/17180392/211619716-8630ae1a-e5ea-424f-87a6-f3188edae821.svg" height=19.2 align=center /> TypeScript](https://www.typescriptlang.org/)
-  - [Typed environment variables](dev.ts)
-  - [TypeScript & JavaScript compatibility](https://www.typescriptlang.org/tsconfig#allowJs)
-  - [ES Modules & CommonJS compatibility](https://esbuild.github.io/api/#format-commonjs)
-- [<img src="https://user-images.githubusercontent.com/124377191/228204788-98a151c8-fc70-4dac-a966-4be6513aafc6.png" height=19.2 align=center /> Node.js](https://nodejs.org/)
-  - [Live Reload](https://nodejs.org/en/blog/release/v18.11.0)
-  - [Debugging](https://nodejs.org/en/docs/guides/debugging-getting-started)
-- [<img src="https://user-images.githubusercontent.com/124377191/228203400-d65b9566-d92e-48b1-9b46-9aa95c05fb21.svg" height=19.2 align=center /> esbuild](https://esbuild.github.io/)
-  - [Fast bundling](https://esbuild.github.io/faq/#benchmark-details)
-  - [Fast transpiling](https://esbuild.github.io/faq/#benchmark-details)
-- [<img src="https://user-images.githubusercontent.com/124377191/228203064-cf898651-9439-45cb-888c-689ca3b41def.svg" height=19.2 align=center /> Rome](https://rome.tools/)
-  - [Fast linting](https://github.com/rome/tools/blob/main/benchmark/README.md#linting)
-  - [Fast formatting](https://github.com/rome/tools/blob/main/benchmark/README.md#formatting)
-  - [Import sorting](https://rome.tools/blog/2022/12/06/rome11/#import-sorting-experimental)
-- [<img src="https://user-images.githubusercontent.com/124377191/228447757-78408c15-e914-4fb3-9135-f1ff45ee3fce.svg" height=19.2 align=center /> GitHub](https://github.com)
-  - [One click template](https://github.com/dayblox/node-ts/generate)
-  - [Continuous Integration with dependency caching](.github/workflows/ci.yml)
+## Technologies Used
 
-## Prerequisites
-
-- [<img src="https://user-images.githubusercontent.com/124377191/228203877-9975d517-140a-491d-80f5-9cca049143a6.svg" height=19.2 align=center /> pnpm](https://pnpm.io/installation) `>=7.27.0`
-  - [Running multiple scripts in parallel](https://pnpm.io/cli/run#running-multiple-scripts)
-  - [Automatic Node.js version management](https://pnpm.io/npmrc#use-node-version)
+- Node.js
+- TypeScript
+- Express.js
+- MongoDB
+- Mongoose
+- Jest (for testing)
+- CI/CD with Railway
 
 ## Getting Started
 
-1.  **[Deploy on Railway](https://railway.app/template/8AWlL5?referralCode=bonus)** or **[use this template](https://github.com/dayblox/node-ts/generate)**
+To get a local copy of the backend up and running, follow these steps:
 
-2.  **Clone** the repository
+1. Clone the repository:
 
-3.  **Install** dependencies
+```bash
+git clone <repository-url>
+```
 
-    ```sh
-    pnpm i
-    ```
+2. Navigate to the project directory:
 
-4.  Create environment file `env.ts` at the root
+```bash
+cd asteroids-backend
+```
 
-    ```ts
-    export default {
-      PORT: "3000",
-    };
-    ```
+3. Install the dependencies:
 
-    #
+```bash
+npm install
+```
 
-    _Optionally_ typecheck environment with `zod`
+4. Set up environment variables:
 
-    ```ts
-    import { z } from "zod";
+Create a .env file in the root directory.
+Specify the following environment variables in the .env file:
+MONGODB_URI: The URI for connecting to your MongoDB database.
+NASA_API_KEY: Your API key for accessing NASA's API.
 
-    z.object({
-      PORT: z.coerce.number(),
-      URL: z.string().url(),
-      UUID: z.string().uuid(),
-      EMAIL: z.string().email().optional(),
-    }).parse(process.env);
-    ```
+5. Start the backend server:
 
-## Usage
+```bash
+npm run start
+```
 
-- **Development** mode (**debug**)
+The backend server will be running at http://localhost:8000.
 
-  ```sh
-  pnpm dev
-  ```
+## Deployment
+The project is set up for deployment with Railway, utilizing its CI/CD capabilities. Whenever changes are pushed to the main branch, Railway will automatically build and deploy the backend.
 
-- **Production** build
+To set up the deployment, follow the instructions provided by Railway, including configuring the necessary environment variables for the backend to run in the deployment environment.
 
-  ```sh
-  pnpm build && pnpm start
-  ```
+## Contributing
+Contributions are welcome! If you find any issues or have suggestions for improvement, feel free to open an issue or submit a pull request.
+
+Please follow the project's code of conduct and guidelines when contributing.
+
+## License
+This project is licensed under the MIT License.
