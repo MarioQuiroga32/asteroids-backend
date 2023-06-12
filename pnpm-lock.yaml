@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@types/node':
+    specifier: ^20.3.0
+    version: 20.3.0
   axios:
     specifier: ^1.4.0
     version: 1.4.0
@@ -23,11 +26,6 @@ dependencies:
   mongodb:
     specifier: ^5.6.0
     version: 5.6.0
-
-devDependencies:
-  '@types/node':
-    specifier: ^20.3.0
-    version: 20.3.0
 
 packages:
 
@@ -231,6 +229,7 @@ packages:
 
   /@types/node@20.3.0:
     resolution: {integrity: sha512-cumHmIAf6On83X7yP+LrsEyUOf/YlociZelmpRYaGFydoaPdxdt80MAbu6vWerQT2COCp2nPvHdsbD7tHn/YlQ==}
+    dev: false
 
   /@types/webidl-conversions@7.0.0:
     resolution: {integrity: sha512-xTE1E+YF4aWPJJeUzaZI5DRntlkY3+BCVJi0axFptnjGmAoWxkyREIh/XMrfxVLejwQxMCfDXdICo0VLxThrog==}
