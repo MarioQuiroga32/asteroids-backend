@@ -3,8 +3,8 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 import { MongoClient, ObjectId } from 'mongodb';
 import cors from 'cors';
-import { initMongoDB } from "~/utils/initMongoDB";
-import { mapAsteroidData } from "~/utils/mapAsteroidData";
+import { initMongoDB } from "./utils/initMongoDB";
+import { mapAsteroidData } from "./utils/mapAsteroidData";
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ const port = process.env.PORT;
 const api_key = process.env.NASA_API_KEY;
 const nasaBaseUrl = 'https://api.nasa.gov/neo/rest/v1/neo';
 
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.MONGODB_URI;
 const client = new MongoClient(mongoURI);
 initMongoDB(client);
 
