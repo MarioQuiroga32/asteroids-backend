@@ -108,7 +108,7 @@ app.get('/asteroids/favorites', async (req: Request, res: Response) => {
         const asteroidIds = favoriteAsteroids.map((favorite) => favorite.asteroidId);
 
         const asteroidPromises = asteroidIds.map((id) => {
-            return axios.get(nasaBaseUrl + id, {
+            return axios.get(nasaBaseUrl +  '/' + id, {
                 params: {
                     api_key,
                 },
