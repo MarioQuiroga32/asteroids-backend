@@ -1,4 +1,4 @@
-import { Asteroid } from "~/types";
+import { Asteroid } from "../types";
 
 export const mapAsteroidData = (asteroid: Asteroid) => {
     return {
