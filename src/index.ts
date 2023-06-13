@@ -16,7 +16,7 @@ const api_key = process.env.NASA_API_KEY;
 const nasaBaseUrl = 'https://api.nasa.gov/neo/rest/v1/neo';
 
 const mongoURI = process.env.MONGODB_URI;
-const client = new MongoClient(mongoURI);
+const client = new MongoClient(mongoURI as string);
 initMongoDB(client);
 
 app.get('/asteroids', async (req: Request, res: Response) => {
@@ -30,13 +30,20 @@ app.get('/asteroids', async (req: Request, res: Response) => {
         };
 
         if (startDate && endDate) {
+            url = `https://api.nasa.gov/neo/rest/v1/feed`;
             params.start_date = startDate;
             params.end_date = endDate;
         }
 
         const response = await axios.get(url, { params });
 
-        const asteroids = response.data.near_earth_objects.map(mapAsteroidData);
+        if (startDate && endDate) {
+            const asteroids = Object.values(response.data.near_earth_objects).flat().map(mapAsteroidData as any);
+            res.json(asteroids);
+            return;
+        }
+
+        const asteroids = response.data.near_earth_objects?.map(mapAsteroidData) || Object.values(response.data.near_earth_objects);
 
         res.json(asteroids);
     } catch (error) {

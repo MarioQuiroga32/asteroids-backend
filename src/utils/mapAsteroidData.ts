@@ -10,7 +10,7 @@ export const mapAsteroidData = (asteroid: Asteroid) => {
             meters: asteroid.estimated_diameter.meters.estimated_diameter_max
         },
         hazardous: asteroid.is_potentially_hazardous_asteroid,
-        firstObservationDate: asteroid.orbital_data.first_observation_date,
-        lastObservationDate: asteroid.orbital_data.last_observation_date,
+        firstObservationDate: asteroid.orbital_data?.first_observation_date,
+        lastObservationDate: asteroid.orbital_data?.last_observation_date,
     };
 }
