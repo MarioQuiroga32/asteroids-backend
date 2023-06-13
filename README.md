@@ -56,6 +56,13 @@ npm run start
 
 The backend server will be running at http://localhost:8000.
 
+## Testing
+There's unit tests for the utils using Jest. To run those, execute the following command:
+
+```bash
+npm run test
+```
+
 ## Deployment
 The project is set up for deployment with Railway, utilizing its CI/CD capabilities. Whenever changes are pushed to the main branch, Railway will automatically build and deploy the backend.
 
